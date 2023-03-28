@@ -1,0 +1,56 @@
+
+.header{
+    background-color: antiquewhite; 
+    margin: 5% 30% 2% 30%;
+    padding: 1%;
+    font-size: x-large;
+    font-weight: bold;
+    border-style:solid;
+    border-color: black;
+}
+
+.text__area{
+    font-weight: bold;
+    font-size: larger;
+    margin-right: 3%; 
+}
+
+.main__list{
+    margin: 5% 30% 10% 30%;
+    padding: 1%;
+    border-style:solid;
+    border-color: black;
+    background-color:antiquewhite
+    
+}
+.mg__top{
+    margin-top: 2%;
+}
+#mg__right{
+    margin-right:  2%;
+}
+.mg__right1{
+    margin-right: 1%;
+}
+.textalign__center{
+    text-align: center;
+}
+li{  
+    justify-content: space-between;
+ 
+}
+.display__flex{
+    display: flex;
+}
+
+.justify__content__center{
+    justify-content: center;
+}
+
+.flex__directcolumn{
+    flex-direction: column;
+}
+.signinup__area{
+padding: 20% 30% 50% 40%;
+}
+

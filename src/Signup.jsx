@@ -1,34 +1,43 @@
 import React from "react";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-
-
-
+import { Link} from "react-router-dom";
 
 function Signup(props){
-const {handleChange , userName, isMatch, navigate}=props
+const {handleChange , userName, isMatch, navigate, register}=props
 
 
 
   const signedUpValidator =()=>{
-    !isMatch?alert("signed in"): alert("wrong name")
+    let correctUserName=(userName.trim()!=="")
+    console.log(correctUserName)
+    if(!isMatch&&correctUserName){
+        register()
+        navigate(`list/${userName}`)
+    }
+    else {alert("This username isn't available. Try Another")}
   }
 
     return(
         <>
-        <div>
-            <TextField  
-        label="Write Your Name" variant="outlined" size="small"
-        value={userName}
-        onChange={handleChange}
-        />
-        </div>
-        <div>
-            <Button size="small" variant="contained" onClick={()=>signedUpValidator()}>Register</Button>
-        </div>
-        <div>
-            <p>Do you have account?</p> 
-            <Button size="small" variant="contained" onClick={()=>navigate(-1)}>Go back to Sign In</Button>
+        <div className="signinup__area display__flex flex__directcolumn textalign__center">
+            <div>
+                <TextField  
+                label="Write Your Name" 
+                variant="outlined" 
+                size="small"
+                value={userName}
+                onChange={handleChange}
+                />
+            </div>
+            <div className="mg__top textalign__center">
+                <Button size="small" 
+                variant="contained" 
+                onClick={()=>signedUpValidator()}>Register</Button>
+            </div>
+            <div className="display__flex justify__content__center">
+                <p>Do you have account? <Link to={"/"}>Sign in</Link></p>
+            </div>
         </div>
         </>
     )

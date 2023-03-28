@@ -1,29 +1,35 @@
 import React from "react";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 function InputArea (props){
-    const {handleChange , userName , isMatch}=props
+    const {handleChange , userName , isMatch, navigate}=props
 
     const signedInValidator =()=>{
-        isMatch?alert("signed in"): alert("wrong name")
+        isMatch?navigate(`list/${userName}`): alert("Wrong Username")
       }
     return(
-        <div>
-        <TextField  
-        label="Write Your Name" variant="outlined" size="small"
-        value={userName}
-        onChange={handleChange}
-        />
-        <Button size="small" variant="contained" onClick={()=> signedInValidator()}>Sign In</Button>
-        <div>
-        <p>
-            Don't have an account?
-        </p>
-       <Link to={"signup"}><Button size="small" variant="contained">Sign Up</Button></Link> 
+        <>
+        <div className="signinup__area display__flex flex__directcolumn textalign__center">
+            <div >
+            <TextField  
+            label="Write Your Name" variant="outlined" size="small"
+            value={userName}
+            onChange={handleChange}
+            />
+            </div>
+            <div className="mg__top textalign__cente">
+            <Button id="alignitemsrg" size="small" variant="contained" onClick={()=> signedInValidator()}>Sign In</Button>
+            </div>
+            <div className="display__flex justify__content__center">
+                <p>
+                Don't have an account? <Link to={"signup"}>Sign Up</Link>
+                </p>
+            </div>
         </div>
-        </div>
+        </>
+       
     )
 }
 
